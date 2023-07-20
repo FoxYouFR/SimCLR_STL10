@@ -1,14 +1,9 @@
-import math
-from typing import Any
-from pytorch_lightning.utilities.types import STEP_OUTPUT
-import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision
 import pytorch_lightning as pl
-from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint
 
-from losses import InfoNCE
+from losses import InfoNCE, NTXent
 
 class SimCLR(pl.LightningModule):
     def __init__(self, hidden_dim, lr, temperature, weight_decay, max_epochs):
